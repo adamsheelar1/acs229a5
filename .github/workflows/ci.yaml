@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main  # Set a branch to deploy
-      - gha-service-account
+      - acs229-service-acct
   pull_request:
 
 permissions:
@@ -33,15 +33,16 @@ jobs:
       # configure gcloud `setup-gcloud` automatically
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
-        uses: 'google-github-actions/auth@v1'
+        uses: 'google-github-actions/auth@v2'
         with:
-          workload_identity_provider: 'projects/143616246873/locations/global/workloadIdentityPools/gh-actions-pool/providers/gh-actions-provider'
-          service_account: 'github-actions-service-account@static-resume-386719.iam.gserviceaccount.com'
+          workload_identity_provider: 'projects/21860628342/locations/global/workloadIdentityPools/github/providers/acs229-repo'
+          service_account: 'acs229-service-acct@acs229a5.iam.gserviceaccount.com'
 
       # upload files to GCS
       - id: 'upload-static-files'
-        uses: 'google-github-actions/upload-cloud-storage@v1'
+        uses: 'google-github-actions/upload-cloud-storage@v2'
         with:
           path: 'public'
-          destination: 'dansc0de'
+          destination: 'acs229a5'
           parent: false
+
