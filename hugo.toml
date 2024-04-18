@@ -2,14 +2,5 @@ baseURL = 'https://acs229.com'
 languageCode = 'en-us'
 title = 'acs229.com'
 
-theme = 'risotto'
+theme = 'ananke'
 
-[menus]
-[[menus.main]]
-  name = 'Resume'
-  url = '/resume'
-  weight = 200
-[[menus.main]]
-  name = 'Contact'
-  url = '/contact'
-  weight = 300
